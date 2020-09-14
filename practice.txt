@@ -1,0 +1,103 @@
+3.
+git clone git@github.com:XXXX/learngit.git
+
+git checkout -b dev origin/dev
+
+git add XXX
+
+git commit -m "xxxx"
+
+git pull
+
+4.
+git reflog
+
+git reset --hard 版本号
+
+5.
+git push -u master feature-1
+
+6.
+git tag -a v0.1 -m "version 0.1 released"
+
+git tag -d v0.9
+
+7.
+
+git stash
+
+git checkout dev
+
+git add xxx
+
+git commit -m "xxxx"
+
+git checkout master
+
+git cherry-pick xxx
+
+git checkout feature-1
+
+8.
+git log --since=2020-04-02 --until=2020-08-06 --author="cheny" --pretty=tformat: "%s"
+
+9.
+git reset --hard 01e31c
+
+git push -f origin master
+
+10.
+git rebase -i HEAD~5
+
+wq
+
+git rebase --continue
+
+git push -f origin master
+
+不仅该commit的id会发生变化，而且该commit之后的commit的id也会发生变化
+
+11.
+git merge和git rebase从最终效果来看没有任何区别,但是过程不一样，如果使用merge合并，将为分支合并自动识别出
+最佳的同源合并点：并新增合并点，而git rebase可以线性的看到每次提交，而git merge可以更加精确的看到每次提交，
+merge 操作遇到冲突的时候，当前merge不能继续进行下去。手动修改冲突内容后，add 修改，commit 就可以继续往
+下操作，而rebase 操作的话，会中断rebase，同时会提示去解决冲突。
+
+12.
+Git fetch和git pull区别为：远端bai跟du踪分支不同、zhi拉取不同、commitID不同。
+
+Git fetch能够直接更改远端跟踪分支
+
+git pull无法直接对远程跟踪分支操作，我们必须先切回本地分支然后创建一个新的commit提交。
+
+Git fetch：Git fetch会将数据拉取到本地仓库 而且不会自动合并或修改当前的工作。
+
+git pull是从远程获取最新版本并merge到本地，会自动合并或修改当前的工作
+
+使用Git fetch更新代码，本地的库中master的commitID不变
+
+使用git pull更新代码，本地的库中master的commitID发生改变
+
+如果在git pull的时候加上rebase参数，会把本地当前分支里的每个提交(commit)取消掉，并且把它们临时 保存为补丁(patch)
+(这些补丁放到".git/rebase"目录中),然后把本地当前分支更新 为最新的"origin"分支，最后把保存的这些补丁应用到本地当
+前分支上。
+
+13.
+工作区就是电脑里能看到的目录
+
+暂存区（stage） 当执行git add 时就把文件添加到暂存区
+
+版本库里包括了暂存区和分支，当git commit提交更改时，就把暂存区的内容提交到当前分支
+
+14.
+新建feature分支
+git switch -c feature-xxx
+
+git add xxx
+
+git commit -m "xxxx"
+
+git checkout dev
+git merge feature-xxx
+
+
